@@ -13,10 +13,11 @@ import com.hibernate.entity.Article;
 import com.hibernate.entity.Category;
 
 /**
- * This program demonstrates how to use JPA annotations to map
- * a one-to-many association on join table in Hibernate.
+ * This program demonstrates how to use JPA annotations to map a one-to-many
+ * association on join table in Hibernate.
+ * 
  * @author prashant
- *
+ * 
  */
 public class ArticlesManager {
 
@@ -55,24 +56,28 @@ public class ArticlesManager {
 		session.save(category);
 
 		session.getTransaction().commit();
-		
+
 		session.beginTransaction();
 		category = (Category) session.get(Category.class, category.getId());
-		System.out.println("======= after updation ========"+category.getArticles().add(new Article()));
+		System.out.println("======= after updation ========"
+				+ category.getArticles().add(new Article()));
 		session.update(category);
 		session.getTransaction().commit();
-		
+
 		System.out.println("============ size ==========");
 		session.beginTransaction();
-		System.out.println("======="+((Category)session.get(Category.class, category.getId())).getArticles().size());
+		System.out.println("======="
+				+ ((Category) session.get(Category.class, category.getId()))
+						.getArticles().size());
 		session.getTransaction().commit();
-	
+
 		System.out.println("============ size ==========");
 		session.beginTransaction();
-		System.out.println("======="+((Category)session.get(Category.class, category.getId())).getArticles().remove(articleTwo));
+		System.out.println("======="
+				+ ((Category) session.get(Category.class, category.getId()))
+						.getArticles().remove(articleTwo));
 		session.getTransaction().commit();
-		
-		
+
 		session.close();
 	}
 

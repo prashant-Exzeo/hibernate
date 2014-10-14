@@ -11,11 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 /**
- * This program demonstrates how to use JPA annotations to map
- * a one-to-many association on join table in Hibernate.
+ * This program demonstrates how to use JPA annotations to map a one-to-many
+ * association on join table in Hibernate.
+ * 
  * @author prashant
- *
+ * 
  */
 @Entity
 @Table(name = "category")
@@ -25,10 +27,10 @@ public class Category {
 	private String name;
 
 	private Set<Article> articles;
-	
+
 	public Category() {
 	}
-	
+
 	public Category(String name) {
 		this.name = name;
 	}
@@ -53,11 +55,7 @@ public class Category {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "category_article",
-			joinColumns = @JoinColumn(name = "category_Id"),
-			inverseJoinColumns = @JoinColumn(name = "article_Id")
-	)
+	@JoinTable(name = "category_article", joinColumns = @JoinColumn(name = "category_Id"), inverseJoinColumns = @JoinColumn(name = "article_Id"))
 	public Set<Article> getArticles() {
 		return articles;
 	}

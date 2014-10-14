@@ -5,15 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /**
- * This program demonstrates how to use JPA annotations to map
- * a one-to-many association on join table in Hibernate.
+ * This program demonstrates how to use JPA annotations to map a one-to-many
+ * association on join table in Hibernate.
+ * 
  * @author prashant
- *
+ * 
  */
 @Entity
 @Table(name = "article")
 public class Article {
+
 	private long id;
 	private String title;
 	private String description;
