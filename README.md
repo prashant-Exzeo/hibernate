@@ -1,4 +1,4 @@
 hibernate
 =========
 
-Hibernate Using Annotation
+Hibernate Using javaPersistence & annotations.
